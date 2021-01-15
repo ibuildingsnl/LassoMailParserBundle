@@ -8,7 +8,7 @@
     "homepage": "https://github.com/lassodatasystems",
     "license": "BSD-3-Clause",
     "require": {
-        "zendframework/zend-mail": "2.5.2"
+        "laminas/laminas-mail": "^2.12"
     },
     "repositories": [
         {
@@ -19,5 +19,8 @@
     "autoload": {
         "psr-0": { "Lasso\\MailParserBundle": "" }
     },
-    "target-dir": "Lasso/MailParserBundle"
+    "target-dir": "Lasso/MailParserBundle",
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    }
 }
