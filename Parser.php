@@ -26,7 +26,7 @@ use Laminas\Mail\Exception\InvalidArgumentException;
 use Laminas\Mail\Header\AbstractAddressList;
 use Laminas\Mail\Header\HeaderInterface;
 use Laminas\Mail\Storage\Part;
-use Laminas\Mime\Exception\RuntimeException;
+use RuntimeException;
 
 /**
  * Provides a very simple wrapper around the zend mail library. Contains assorted helper functions regarding mail

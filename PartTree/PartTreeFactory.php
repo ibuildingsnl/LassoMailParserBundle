@@ -40,11 +40,15 @@ class PartTreeFactory extends ParseHelper
      */
     private function buildTreeNode(PartTreeNode $root)
     {
+        if ($root->getPart()->getHeaders() === null) {
+            return $root;
+        }
+
         /*
          * $part->countParts(); can throw an error if the headers are missing.
          * Return an empty array if the headers are indeed missing.
          */
-        if ($root->getPart()->getHeaders() === null || count($root->getPart()->getHeaders()) === 0) {
+        if (count($root->getPart()->getHeaders()) === 0) {
             return $root;
         }
 
