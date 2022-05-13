@@ -44,7 +44,7 @@ class PartTreeFactory extends ParseHelper
          * $part->countParts(); can throw an error if the headers are missing.
          * Return an empty array if the headers are indeed missing.
          */
-        if (count($root->getPart()->getHeaders()) === 0) {
+        if ($root->getPart()->getHeaders() === null || count($root->getPart()->getHeaders()) === 0) {
             return $root;
         }
 

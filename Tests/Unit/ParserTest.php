@@ -23,7 +23,7 @@ namespace Lasso\MailParserBundle\Tests\Unit;
 use Lasso\MailParserBundle\ParsedMail;
 use Lasso\MailParserBundle\PartFactory;
 use Lasso\MailParserBundle\Parser;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ParserTests
@@ -32,7 +32,7 @@ use PHPUnit_Framework_TestCase;
  *
  * @package Lasso\MailParserBundle\Tests\Unit
  */
-class ParserTests extends PHPUnit_Framework_TestCase
+class ParserTests extends TestCase
 {
     protected $partFactory;
 
@@ -54,9 +54,9 @@ MAIL;
     /**
      * Set up
      */
-    public function setUp()
+    public function setUp(): void
     {
-        $this->partFactory = $this->getMock('Lasso\MailParserBundle\PartFactory');
+        $this->partFactory = $this->createMock('Lasso\MailParserBundle\PartFactory');
     }
 
     protected function getParser($partFactory = null)
@@ -73,12 +73,12 @@ MAIL;
      */
     public function parsingMailSetsPart()
     {
-        $partFactoryMock = $this->getMock(
+        $partFactoryMock = $this->createMock(
             'Lasso\MailParserBundle\PartFactory',
             ['getPart']
         );
         $partMock        = $this->getMockBuilder(
-            'Zend\Mail\Storage\Part'
+            'Laminas\Mail\Storage\Part'
         )->disableOriginalConstructor()->getMock();
 
         $partFactoryMock->expects($this->once())
@@ -89,7 +89,7 @@ MAIL;
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse('From: someone@example.com');
 
-        $this->assertAttributeEquals($partMock, 'mail', $parsedMail);
+        $this->assertEquals($partMock, $parsedMail->getMail());
     }
 
     /**
@@ -98,12 +98,12 @@ MAIL;
     public function getMailReturnsCorrectPartInstance()
     {
 
-        $partFactoryMock = $this->getMock(
+        $partFactoryMock = $this->createMock(
             'Lasso\MailParserBundle\PartFactory',
             ['getPart']
         );
         $partMock        = $this->getMockBuilder(
-            'Zend\Mail\Storage\Part'
+            'Laminas\Mail\Storage\Part'
         )->disableOriginalConstructor()->getMock();
 
         $partFactoryMock->expects($this->once())
@@ -483,7 +483,8 @@ MAIL;
         $parser = $this->getParser(new PartFactory());
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse($mailBody);
-        $parsedMail->getPrimaryContent();
+        $result = $parsedMail->getPrimaryContent();
+        $this->assertIsString($result);
     }
 
     /**
@@ -528,7 +529,7 @@ MAIL;
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse($mailBody);
 
-        $this->assertContains('simple html test', $parsedMail->getPrimaryContent());
+        $this->assertStringContainsString('simple html test', $parsedMail->getPrimaryContent());
     }
 
     /**
@@ -542,7 +543,7 @@ MAIL;
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse($mailBody);
 
-        $this->assertContains('而幫助客戶從車輛碰撞後低落的情緒中重拾信心', $parsedMail->getPrimaryContent());
+        $this->assertStringContainsString('而幫助客戶從車輛碰撞後低落的情緒中重拾信心', $parsedMail->getPrimaryContent());
     }
 
     /**
@@ -556,7 +557,7 @@ MAIL;
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse($mailBody);
 
-        $this->assertContains('EINS ZWEI DREI', $parsedMail->getPrimaryContent());
+        $this->assertStringContainsString('EINS ZWEI DREI', $parsedMail->getPrimaryContent());
     }
 
     /**
@@ -570,6 +571,6 @@ MAIL;
         /** @var ParsedMail $parsedMail */
         $parsedMail = $parser->parse($mailBody);
 
-        $this->assertContains('simple html test', $parsedMail->getPrimaryContent());
+        $this->assertStringContainsString('simple html test', $parsedMail->getPrimaryContent());
     }
 }

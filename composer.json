@@ -1,6 +1,6 @@
 {
     "name": "lasso/mail-parser-bundle",
-    "description": "Parse mails using the Zend framework libraries",
+    "description": "Parse mails using the Laminas framework libraries",
     "type": "symfony-bundle",
     "keywords": [
         "mail", "email", "parsing", "Symfony2", "zend"
@@ -8,19 +8,15 @@
     "homepage": "https://github.com/lassodatasystems",
     "license": "BSD-3-Clause",
     "require": {
-        "laminas/laminas-mail": "^2.12"
+        "laminas/laminas-mail": "^2.16",
+        "laminas/laminas-zendframework-bridge": "^1.5"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.zendframework.com/"
-        }
-    ],
     "autoload": {
         "psr-0": { "Lasso\\MailParserBundle": "" }
     },
     "target-dir": "Lasso/MailParserBundle",
     "require-dev": {
-        "phpunit/phpunit": "^4.8"
+        "ext-mbstring": "*",
+        "phpunit/phpunit": "^9.0.0"
     }
 }

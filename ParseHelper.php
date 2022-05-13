@@ -32,6 +32,10 @@ abstract class ParseHelper {
      */
     protected function hasHeader(Part $part, $header)
     {
+        if ($part->getHeaders() === null) {
+            return false;
+        }
+
         if (count($part->getHeaders()) < 1) {
             return false;
         }
