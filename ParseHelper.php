@@ -3,8 +3,8 @@ namespace Lasso\MailParserBundle;
 
 use ArrayIterator;
 use Exception;
-use Zend\Mail\Header\HeaderInterface;
-use Zend\Mail\Storage\Part;
+use Laminas\Mail\Header\HeaderInterface;
+use Laminas\Mail\Storage\Part;
 
 abstract class ParseHelper {
     /**

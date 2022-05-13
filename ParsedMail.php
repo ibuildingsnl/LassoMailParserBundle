@@ -4,7 +4,7 @@ namespace Lasso\MailParserBundle;
 use ArrayIterator;
 use Exception;
 use UnexpectedValueException;
-use Zend\Mail\Storage\Part;
+use Laminas\Mail\Storage\Part;
 
 class ParsedMail extends ParseHelper {
     private $rawMail;

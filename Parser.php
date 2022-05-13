@@ -22,11 +22,11 @@ namespace Lasso\MailParserBundle;
 
 use ArrayIterator;
 use Lasso\MailParserBundle\PartTree\PartTreeFactory;
-use Zend\Mail\Exception\InvalidArgumentException;
-use Zend\Mail\Header\AbstractAddressList;
-use Zend\Mail\Header\HeaderInterface;
-use Zend\Mail\Storage\Part;
-use Zend\Mime\Exception\RuntimeException;
+use Laminas\Mail\Exception\InvalidArgumentException;
+use Laminas\Mail\Header\AbstractAddressList;
+use Laminas\Mail\Header\HeaderInterface;
+use Laminas\Mail\Storage\Part;
+use Laminas\Mime\Exception\RuntimeException;
 
 /**
  * Provides a very simple wrapper around the zend mail library. Contains assorted helper functions regarding mail
@@ -89,7 +89,7 @@ class Parser extends ParseHelper
 
     /**
      * Some emails are missing a MIME closing boundary. This violations the standard,
-     * but most software still handles it well - except the Zend Framework, who rather
+     * but most software still handles it well - except the Laminas Framework, who rather
      * don't want to accommodate broken emails.
      *
      * Since they don't provide any meaningful way to test if the message was decoded

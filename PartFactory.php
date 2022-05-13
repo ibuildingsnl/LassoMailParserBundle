@@ -20,7 +20,7 @@
  */
 namespace Lasso\MailParserBundle;
 
-use Zend\Mail\Storage\Part;
+use Laminas\Mail\Storage\Part;
 
 /**
  * Class PartFactory

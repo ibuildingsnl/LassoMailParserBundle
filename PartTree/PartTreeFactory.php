@@ -4,7 +4,7 @@ namespace Lasso\MailParserBundle\PartTree;
 use Exception;
 use Lasso\MailParserBundle\ParseHelper;
 use Lasso\MailParserBundle\PartFactory;
-use Zend\Mail\Storage\Part;
+use Laminas\Mail\Storage\Part;
 
 class PartTreeFactory extends ParseHelper
 {

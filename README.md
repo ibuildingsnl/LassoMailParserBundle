@@ -1,6 +1,6 @@
 ##Lasso Mail Parser [![Build Status](https://travis-ci.org/lassodatasystems/LassoMailParserBundle.png?branch=master)](https://travis-ci.org/lassodatasystems/LassoMailParserBundle)
 
-For when you want easy access to an email's content. The Zend Framework has classes to parse emails,
+For when you want easy access to an email's content. The Laminas Framework has classes to parse emails,
 but they can be a bit clunky to use. For example, emails are split into parts, and you have to loop
 over all the parts in an email (which itself is treated as a part) to access the content.
 
@@ -11,7 +11,7 @@ file attachments. Should both html and text parts be given, html is preferred.
 
 #How it works
 
-An email is parsed with the Zend mail parser. It's parts are then recursively grouped by content type,
+An email is parsed with the Laminas mail parser. It's parts are then recursively grouped by content type,
 such as 'text/plain' or 'text/html'. If any html or text parts are found, they are concatenated and the
 result returned. If no such parts are found, null is returned.
 

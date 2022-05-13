@@ -1,7 +1,7 @@
 <?php
 namespace Lasso\MailParserBundle\PartTree;
 
-use Zend\Mail\Storage\Part;
+use Laminas\Mail\Storage\Part;
 
 class PartTreeNode
 {
