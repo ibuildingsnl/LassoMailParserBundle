@@ -35,8 +35,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('lasso_mail_parser');
+        $treeBuilder = new TreeBuilder('lasso_mail_parser');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
